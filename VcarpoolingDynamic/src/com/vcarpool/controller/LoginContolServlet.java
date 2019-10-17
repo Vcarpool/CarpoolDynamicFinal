@@ -15,7 +15,7 @@ import org.apache.log4j.Logger;
 import com.vcarpool.exception.VCarpoolException;
 import com.vcarpool.model.User;
 import com.vcarpool.services.UserServiceImpl;
-/**
+/*
  * Servlet implementation class LoginContolServlet
  */
 @WebServlet("/LoginContolServlet")
@@ -37,22 +37,50 @@ public class LoginContolServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-	int uName=Integer.parseInt( request.getParameter("userid"));
-	PrintWriter out=response.getWriter();
-	String password=request.getParameter("password");
-	RequestDispatcher dispatcher=request.getRequestDispatcher("WebContent/html/Error.html");
+	System.out.print("entered into  logincontrolservlet");
 	
+	int uName = Integer.parseInt(request.getParameter("userid"));
+	PrintWriter out = response.getWriter();
+	System.out.print(uName);
+	String password = request.getParameter("password");
+	System.out.print(password);
+	RequestDispatcher dispatcher = request.getRequestDispatcher("error.html");	
 	try {
-		if(usr.login(uName, password)==1) {
-			
-			User user=usr.getUser(uName);
-			HttpSession session=request.getSession();
-			session.setAttribute("userid",user.getUserName());
-			
+				
+		if (usr.login(uName, password) == 1) {
+			User user = usr.getUser(uName);
+			HttpSession session = request.getSession();
+			session.setAttribute("userid", user.getUserName());
+			session.setAttribute("username", user.getUserId());
+			session.setAttribute("usertype", user.getType());
+			session.setAttribute("useremail", user.getEmail());
+			out.print(user.getUserName() + user.getEmail() + user.getType());
+			if (session.getAttribute("source") == null) {
+				dispatcher = request.getRequestDispatcher("home.jsp");
+				dispatcher.forward(request, response);
+			}
+
+			else {
+				System.out.println("else block");
+				dispatcher = request.getRequestDispatcher("result.jsp");
+				//System.out.println(request.getRequestDispatcher("/JSP/result.jsp"));
+				dispatcher.forward(request, response);
+			}
+
+		} else {
+			request.setAttribute("message", "username / password incorrect");
+			out.println("not sucess");
+			dispatcher = request.getRequestDispatcher("login.jsp");
+			dispatcher.forward(request, response);
+
 		}
 	} catch (VCarpoolException e) {
 		// TODO Auto-generated catch block
-		e.printStackTrace();
+		dispatcher = request.getRequestDispatcher("error.html");
+		dispatcher.forward(request, response);
+
+		log.error("error-login controller", e);
+		log.error(e.getMessage());
 	}
 	
 	}

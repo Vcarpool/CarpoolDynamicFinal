@@ -12,7 +12,7 @@
 
 	<div class="login-card">
 		
-		<form action="CarServlet" method="post">
+		<form action="CarServ" method="post">
 		<div class="box">
 		<h2>
 		hello
@@ -26,7 +26,7 @@
 				type="text" name="source" placeholder="Enter Source" class="email"> <input
 				type="text" name="destination" placeholder="Enter destination" class="email" >
 				<input
-				type="time" name="time" id="time"  required / class="email"> <br>
+				type="time" name="time" id="time" PLACEHOLDER="ENTER TIME" required / class="email"> <br>
 			<input type="submit" name="login" 
 				value="submit" class="btn">
 				</div>

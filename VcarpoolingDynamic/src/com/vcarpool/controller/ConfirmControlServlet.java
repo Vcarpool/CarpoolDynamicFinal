@@ -1,4 +1,4 @@
-package com.vcarpool.controller;
+	package com.vcarpool.controller;
 import java.io.PrintWriter;
 import java.io.IOException;
 
@@ -45,7 +45,6 @@ public class ConfirmControlServlet extends HttpServlet {
 		try {
 			boolean status=carserv.bookCar(regNo, seats);
 			if(status) {
-				
 				dispatcher=request.getRequestDispatcher("bookingsuccess.jsp");
 				dispatcher.forward(request, response);
 			}

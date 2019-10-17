@@ -12,14 +12,14 @@
 </script>
 </head>
 <body>
-	<form method="post" action="controller/LoginContolServlet.java" onsubmit="store()">
+	<form method="post" action="LoginContolServlet" onsubmit="store()" autocomplete="off">
 		<div class="box">
 			<h1>Login to VCarPool</h1>
 
 			<input type="text" name="userid"  required="required" id="userid"
 				placeholder="enter user ID" class="email" /> <input id="password"
-				type="password" name="password"  required="required" placeholder="enter your password"
-				 class="email" /> <input type="submit" value="Sign in" class="btn">
+				type="password" name="password"  required="required" placeholder="enter your password"	 class="email" />
+				 <input type="submit" value="Sign in" class="btn">
 			<!-- End Btn -->
 
 			<a href="register.jsp"><div id="btn2">Sign Up</div></a>

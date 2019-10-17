@@ -67,7 +67,7 @@ public class CarServlet extends HttpServlet {
 		}
 		if(checking) {
 			session.setAttribute("userId", check);
-			dispatcher=request.getRequestDispatcher("success.jsp");
+			dispatcher=request.getRequestDispatcher("registerSuccess.jsp");
 			
 		}
 		else {

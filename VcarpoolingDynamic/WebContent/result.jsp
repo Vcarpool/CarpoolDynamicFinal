@@ -38,7 +38,7 @@ ArrayList<Car> list = (ArrayList<Car>) obj;
 </tr>
 <%} %>
 <%}else{ %>
-<h1>No cars available for request <a href="index.html">click here to go home</a></h1>
+<h1>No cars available for request <a href="index.jsp">click here to go home</a></h1>
 <%} %>>
 </table>
 </body>

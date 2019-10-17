@@ -60,6 +60,7 @@ public class UserDao  implements UserService{
 			if (resultSet != null)
 				try {
 					resultSet.close();
+					System.out.print(resultSet);
 				} catch (SQLException e) {
 					throw new VCarpoolException();
 				}

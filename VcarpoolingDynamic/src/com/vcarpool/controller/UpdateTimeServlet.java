@@ -26,20 +26,28 @@ public class UpdateTimeServlet extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
+    /**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
 	
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		//doGet(request, response);
 		String time=request.getParameter("time");
 		System.out.println(time);
 		CarServiceImpl carService=new CarServiceImpl();
 		boolean check=false;
-		String RegNo="TS13EM3836";
+		String regNum="TS13EM3836";
 		
 		try {
-			check=carService.updateDeptTime(RegNo, time);
+			check=carService.updateDeptTime(regNum, time);
 		} catch (VCarpoolException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -52,4 +60,4 @@ public class UpdateTimeServlet extends HttpServlet {
 
 	}
 
-}
+

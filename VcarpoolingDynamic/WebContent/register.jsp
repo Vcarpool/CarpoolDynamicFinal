@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link href="css/style.css" rel="stylesheet" type="text/css">
-<script src="js/validate.js" type="text/javascript"></script>
+<script src="js/validate.js, https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/core.js" type="text/javascript"></script>
 <%
 String message="";
 Object obj=request.getAttribute("regMessage");
@@ -16,7 +16,7 @@ if(obj!=null)
 <title>Vcarpool-Signup</title>
 </head>
 <body>
-<form method="post" action="controller/RegistrationControlServlet" >
+<form method="post" action="RegistrationControlServlet" >
 		<div class="box">
 			<h1>Sign up - VCarPool</h1>
 			<h5 style="color:red;"><%=message %></h5>

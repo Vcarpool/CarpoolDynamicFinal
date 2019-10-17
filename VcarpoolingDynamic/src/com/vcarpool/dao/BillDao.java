@@ -27,17 +27,17 @@ Logger logger = Logger.getLogger(BillDao.class.getName());
 		int userNo = 0;
 		try {
 			System.out.println(connection);
-			preparedStatement = connection.prepareStatement("insert into bill( TxnId,status,fare,Ride_rideId) values(?,?,?,?)",
+			preparedStatement = connection.prepareStatement("insert into bill( status,fare,Ride_rideId) values(?,?,?)",
 					Statement.RETURN_GENERATED_KEYS
 
 			);
 			/*get the details of status,fare,ride_id
 			 * set the values in to bill  table
 			 * */
-			preparedStatement.setInt(1, bill.getTxnId());
-			preparedStatement.setString(2, bill.getStatus());
-			preparedStatement.setDouble(3, bill.getFare());
-			preparedStatement.setInt(4, bill.getRideId().getRideId());
+			//preparedStatement.setInt(1, bill.getTxnId());
+			preparedStatement.setString(1, bill.getStatus());
+			preparedStatement.setDouble(2, bill.getFare());
+			preparedStatement.setInt(3, bill.getRideId().getRideId());
 			preparedStatement.executeUpdate();
 
 			resultSet = preparedStatement.getGeneratedKeys();

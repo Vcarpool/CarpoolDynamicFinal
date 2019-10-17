@@ -10,7 +10,7 @@
 <script src="js/validate.js" type="text/javascript"></script>
 </head>
 <body>
-<form method="post" action="LoginControlServlet"onsubmit="store()">
+<form method="post" action="LoginContolServlet"onsubmit="store()">
 		<div class="box">
 			<h2 style="color:green">Registration sucessful, your id is <%=session.getAttribute("userid") %> now Login</h2>
 			<h1>Login to VCarPool</h1>

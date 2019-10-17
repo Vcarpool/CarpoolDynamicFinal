@@ -1,3 +1,7 @@
+/**
+ * 
+ */
+
 
 function store() {
 	var uname=document.getElementById("userid").value;
@@ -34,15 +38,7 @@ function field_blur(field, email) {
 	}
 }
 
-// Fade in dashboard box
-$(document).ready(function() {
-	$('.box').hide().fadeIn(1000);
-});
 
-// Stop click event
-$('a').click(function(event) {
-	event.preventDefault();
-});
 
 
 function myFunction() {

@@ -49,7 +49,7 @@ public class BookServlet extends HttpServlet {
 		if(session.getAttribute("userid")==null) {
 			try {
 
-				dispatcher=request.getRequestDispatcher("/VcarpoolDynamic/WebContent/jsp/login.jsp");
+				dispatcher=request.getRequestDispatcher("login.jsp");
 
 			} catch (NullPointerException e) {
 				// TODO: handle exception
@@ -58,7 +58,7 @@ public class BookServlet extends HttpServlet {
 
 		}
 		else {
-			dispatcher=request.getRequestDispatcher("/VcarpoolDynamic/WebContent/jsp/booking.jsp");
+			dispatcher=request.getRequestDispatcher("booking.jsp");
 		}
 
 		dispatcher.forward(request, response);

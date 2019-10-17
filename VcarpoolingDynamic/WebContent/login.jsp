@@ -18,7 +18,7 @@ if(obj!=null)
 %>
 </head>
 <body>
-<form action="LoginControlServlet" method="post">
+<form action="LoginContolServlet" method="post">
 <div class="box">
 <h1>Sign in - VCarPool</h1>
 <h3 style="color:red;"><%=message%></h3>

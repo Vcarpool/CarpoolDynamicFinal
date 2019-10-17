@@ -46,20 +46,34 @@ public class RegistrationControlServlet extends HttpServlet {
 		user.setType(request.getParameter("type"));
 		RequestDispatcher dispatcher=null;
 		log.info(user);
-		
 		Integer key=0;
+		log.info("key is"+key);
 		try {
 			/*here key is userId
 			 * */
+			System.out.println("entered");
 			key=usr.insert(user);
+			System.out.println(key);
 			String userid=key.toString();
+			System.out.println(userid);
 			if(key>0) {
+				
+				System.out.println("entered into key pass loop");
 				if (user.getType().equals("provider")) {
-					
+					System.out.println("if provider");
 					HttpSession Session=request.getSession();
 					Session.setAttribute("userid", userid);
+					System.out.println(userid);
 					Session.setAttribute("username",user.getUserName());
+					System.out.println(user);
+					System.out.println("went to addcar.jsp");
 					dispatcher=request.getRequestDispatcher("addcar.jsp");
+					
+				}
+				else {
+					HttpSession Session=request.getSession();
+					Session.setAttribute("userid", userid);
+					dispatcher=request.getRequestDispatcher("registersuccess.jsp");
 					
 				}
 			}

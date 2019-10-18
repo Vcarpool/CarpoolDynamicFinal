@@ -26,7 +26,7 @@ ArrayList<Car> list = (ArrayList<Car>) obj;
 </tr>
 <%for(int i=0;i<list.size();i++) { %>
 <tr>
-<form action="" method="post">
+<form action="ConfirmControlServlet" method="post">
  <td colspan="4" ><input type="text" readonly="readonly" id="carno" name="carno" value=<%=list.get(i).getRegNo() %> /></td>
  <td colspan="4" ><input type="text" readonly="readonly" id="carname" name="carname" value=<%=list.get(i).getCarName() %> /></td>
 <td colspan="4" ><input type="text" readonly="readonly" id="carsource" name="carsource" value=<%=list.get(i).getSource() %> /></td>

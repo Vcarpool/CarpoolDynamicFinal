@@ -28,7 +28,7 @@ Car cars=(Car)obj;
 	<tr><td>
 	<label>Departure Time</label></td><td><input type="text" readonly="readonly" id="bCarTime" value=<%=cars.getDeptTime() %> /></td></tr>
 	<tr><td>
-	<label>Seats Selected</label></td><td><input type="text" readonly="readonly"  name="bSeatsAvailable" value=<%=session.getAttribute("seats")%> /></td></tr>
+	<label>Seats Selected</label></td><td><input type="text" readonly="readonly"  name="bSeatsAvailable" value=<%=session.getAttribute("seats"),cars.getSeatsAvailable()%> /></td></tr>
 	<tr><td>
 	<label>Fare to be paid</label></td><td><input type="text" readonly="readonly"  id="fare" value="40" /></td></tr>
 	<tr align="center"> <td align="center" colspan="2">

@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
+
+import com.sun.org.glassfish.gmbal.ParameterNames;
 import com.vcarpool.exception.VCarpoolException;
 import com.vcarpool.model.Car;
 import com.vcarpool.services.CarServiceImpl;
@@ -35,7 +37,8 @@ public class ConfirmControlServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	@ParameterNames
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		PrintWriter out=response.getWriter();
 		String regNo=request.getParameter("bCarNo");

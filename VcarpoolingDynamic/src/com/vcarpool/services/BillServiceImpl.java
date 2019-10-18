@@ -22,8 +22,5 @@ public class BillServiceImpl implements BillService {
 		
 		return billDao.delete(bill);
 	}
-	
-	
-	
-	
+
 }

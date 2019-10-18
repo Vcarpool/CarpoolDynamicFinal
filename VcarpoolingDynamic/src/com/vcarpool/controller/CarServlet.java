@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import com.vcarpool.model.Car;
+import com.sun.org.glassfish.gmbal.ParameterNames;
 import com.vcarpool.exception.VCarpoolException;
 import com.vcarpool.services.CarServiceImpl;
 
@@ -32,6 +33,7 @@ public class CarServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+    @ParameterNames
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());

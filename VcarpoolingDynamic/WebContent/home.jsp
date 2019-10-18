@@ -36,6 +36,7 @@ String testString="";
   <!-- Navigation links (hidden by default) -->
   <div id="myLinks">
     <a href="index.html">Home</a>
+    <a href="">Book A Car</a>
     <a href="logout.jsp">Logout</a>
     
   </div>

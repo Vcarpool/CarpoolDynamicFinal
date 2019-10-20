@@ -51,10 +51,12 @@ public class ConfirmControlServlet extends HttpServlet {
 			boolean status=carserv.bookCar(regNo, seats);
 			if(status) {
 				dispatcher=request.getRequestDispatcher("bookingsuccess.jsp");
+				
 				dispatcher.forward(request, response);
+				
 			}
 			else {
-				out.println("<h1>failed</h1>");
+				out.println("<h1>seats unavailable failed</h1>");
 			}
 				
 			

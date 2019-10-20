@@ -51,8 +51,8 @@ public class LoginContolServlet extends HttpServlet {
 		if (usr.login(uName, password) == 1) {
 			User user = usr.getUser(uName);
 			HttpSession session = request.getSession();
-			session.setAttribute("userid", user.getUserName());
-			session.setAttribute("username", user.getUserId());
+			session.setAttribute("userid",user.getUserName());
+			session.setAttribute("username",  user.getUserId());
 			session.setAttribute("usertype", user.getType());
 			session.setAttribute("useremail", user.getEmail());
 			out.print(user.getUserName() + user.getEmail() + user.getType());

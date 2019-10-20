@@ -41,7 +41,7 @@ public class BookServlet extends HttpServlet {
 		String carDest=request.getParameter("cardest");
 		String carTime=request.getParameter("cartime");
 		String carSeats=request.getParameter("carseats");
-		Integer seats=Integer.parseInt(carSeats);
+		int seats=Integer.parseInt(carSeats);
 		HttpSession session=request.getSession();
 		Car car=new Car(carNo,carName,seats,carSource,carDest,carTime);
 		session.setAttribute("bookCars", car);

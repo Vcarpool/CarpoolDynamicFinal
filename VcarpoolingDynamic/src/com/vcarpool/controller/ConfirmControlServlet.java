@@ -42,7 +42,9 @@ public class ConfirmControlServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		PrintWriter out=response.getWriter();
 		String regNo=request.getParameter("bCarNo");
+		System.out.println(regNo);
 		int seats=Integer.parseInt(request.getParameter("bSeatsAvailable"));
+		System.out.println("seats:\t"+seats);
 		RequestDispatcher dispatcher=null;
 		  
 		try {

@@ -33,5 +33,4 @@ public class CarServiceImpl implements CarService {
 	public boolean bookCar(String regNo, int seats) throws VCarpoolException {
 		return dao.bookCar(regNo,seats);
 	}
-
 }

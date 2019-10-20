@@ -39,8 +39,8 @@ public class CarDao implements CarService {
 			preparedStatement.setString(7, car.getDeptTime());
 			ret = preparedStatement.executeUpdate();
 		} catch (SQLException e) {
-
-			logger.info("internal exception");
+			// TODO Auto-generated catch block
+			logger.error("error with SQL", e);
 			throw new VCarpoolException("Some internal error contact to admin");
 		} catch (Exception exception) {
 
@@ -61,7 +61,7 @@ public class CarDao implements CarService {
 					connection.close();
 				}
 			} catch (SQLException e) {
-
+				// TODO: handle exception
 				throw new VCarpoolException(" error while closing a resource contact to admin");
 
 			}
@@ -88,7 +88,7 @@ public class CarDao implements CarService {
 			ret = preparedStatement.executeUpdate();
 
 		} catch (SQLException e) {
-
+			// TODO Auto-generated catch block
 			logger.error("error with SQL", e);
 			throw new VCarpoolException("Some internal error contact to admin");
 		} catch (Exception exception) {
@@ -110,7 +110,7 @@ public class CarDao implements CarService {
 					connection.close();
 				}
 			} catch (SQLException e) {
-
+				// TODO: handle exception
 				throw new VCarpoolException(" error while closing a resource contact to admin");
 
 			}
@@ -138,7 +138,7 @@ public class CarDao implements CarService {
 			ret = preparedStatement.executeUpdate();
 
 		} catch (SQLException e) {
-
+			// TODO Auto-generated catch block
 			logger.error("error with SQL", e);
 			throw new VCarpoolException("Some internal error contact to admin");
 		} catch (Exception exception) {
@@ -160,7 +160,7 @@ public class CarDao implements CarService {
 					connection.close();
 				}
 			} catch (SQLException e) {
-
+				// TODO: handle exception
 				throw new VCarpoolException(" error while closing a resource contact to admin");
 
 			}
@@ -177,20 +177,20 @@ public class CarDao implements CarService {
 
 	@Override
 	public ArrayList<Car> showCars(String source, String destination, String time, int seats) throws VCarpoolException {
-		ArrayList<Car> arr = new ArrayList<Car>();
+		ArrayList<Car> arr= new ArrayList<Car>();
 		Connection connection = ConnectionUtil.getConnection();
 		PreparedStatement preparedStatement = null;
-		String query = "select * from car where  source=? and destination=? and departureTime=? and seatsAvailable>=?";
-		Car car = null;
+		String query= "select * from car where  source=? and destination=? and departureTime=? and seatsAvailable>=?";
+		Car car= null;
 		try {
 			preparedStatement = connection.prepareStatement(query);
-			preparedStatement.setString(1, source);
-			preparedStatement.setString(2, destination);
-			preparedStatement.setString(3, time);
-			preparedStatement.setInt(4, seats);
-			ResultSet rs = preparedStatement.executeQuery();
-			while (rs.next()) {
-				car = new Car();
+			preparedStatement.setString(1,source);
+			preparedStatement.setString(2,destination);
+			preparedStatement.setString(3,time);
+			preparedStatement.setInt(4,seats);
+			ResultSet rs= preparedStatement.executeQuery();
+			while(rs.next()) {
+				car= new Car();
 				car.setRegNo(rs.getString("regNo"));
 				car.setCarName(rs.getString("carName"));
 				car.setSeatsAvailable(rs.getInt("seatsAvailable"));
@@ -198,13 +198,13 @@ public class CarDao implements CarService {
 				car.setDestination(rs.getString("destination"));
 				car.setDeptTime(rs.getString("departureTime"));
 				arr.add(car);
-				car = null;
+				car=null;
 			}
 		} catch (SQLException e) {
-			 logger.error("error",e);
+			logger.error("error",e);
 			throw new VCarpoolException(e.getMessage());
-		}
-
+		} 
+		
 		finally {
 
 			// close pstmt,connection,result set also
@@ -217,46 +217,51 @@ public class CarDao implements CarService {
 					connection.close();
 				}
 			} catch (SQLException e) {
-
+				// TODO: handle exception
 				throw new VCarpoolException(" error while closing a resource contact to admin");
 
 			}
 
 		}
 
+		
 		return arr;
 	}
 
 	@Override
 	public boolean bookCar(String regNo, int seats) throws VCarpoolException {
-
+		
 		Connection connection = ConnectionUtil.getConnection();
-		PreparedStatement preparedStatement = null, pst = null;
-		int seat = 0, check = 0;
+		PreparedStatement preparedStatement = null,pst=null;
+		int seat=0,check=0;
 		try {
-			preparedStatement = connection.prepareStatement("select seatsAvailable from car where regNo=?");
+			preparedStatement= connection.prepareStatement("select seatsAvailable from car where regNo=?");
 			preparedStatement.setString(1, regNo);
-			ResultSet rs = preparedStatement.executeQuery();
-
-			if (rs.next())
-				seat = rs.getInt(1);
-
-			if (seat >= seats) {
-				seat = seat - seats;
+			ResultSet rs= preparedStatement.executeQuery();
+			 
+			if(rs.next())
+				seat=rs.getInt(1);
+			
+			if(seat>=seats) {
+				seat=seat-seats;
 				System.out.println(seat);
 				pst = connection.prepareStatement("UPDATE car SET seatsAvailable = ? where regNo= ?");
 				pst.setInt(1, seat);
-				pst.setString(2, regNo);
-				check = pst.executeUpdate();
-			}
+				pst .setString(2, regNo);
+				check=pst.executeUpdate();
+			} 
+			
+			
+			
+			
 
 		} catch (SQLException e) {
-
-			 logger.error("error with SQL", e);
+			// TODO Auto-generated catch block
+			logger.error("error with SQL", e);
 			throw new VCarpoolException(e.getMessage());
 		} catch (Exception exception) {
 
-			 logger.error("error with system", exception);
+			logger.error("error with system", exception);
 			throw new VCarpoolException("Some internal error contact to admin");
 
 		}
@@ -272,20 +277,22 @@ public class CarDao implements CarService {
 				if (connection != null) {
 					connection.close();
 				}
-
+				
+				
 			} catch (SQLException e) {
-
+				// TODO: handle exception
 				throw new VCarpoolException(" error while closing a resource contact to admin");
 
 			}
 
 		}
 
-		if (check > 0)
+		if(check>0)
 			return true;
 		else
 			return false;
 
 	}
+
 
 }

@@ -1,6 +1,5 @@
 package com.vcarpool.exception;
 
-@SuppressWarnings("serial")
 public class VCarpoolException extends Exception {
 	
 
@@ -27,6 +26,5 @@ public class VCarpoolException extends Exception {
 		super(arg0, arg1, arg2, arg3);
 	
 	}
-
 
 }

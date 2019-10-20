@@ -26,14 +26,15 @@ ArrayList<Car> list = (ArrayList<Car>) obj;
 </tr>
 <%for(int i=0;i<list.size();i++) { %>
 <tr>
-<form action="ConfirmControlServlet" method="post">
+<form action="BookServlet" method="post">
  <td colspan="4" ><input type="text" readonly="readonly" id="carno" name="carno" value=<%=list.get(i).getRegNo() %> /></td>
  <td colspan="4" ><input type="text" readonly="readonly" id="carname" name="carname" value=<%=list.get(i).getCarName() %> /></td>
 <td colspan="4" ><input type="text" readonly="readonly" id="carsource" name="carsource" value=<%=list.get(i).getSource() %> /></td>
   <td colspan="4" ><input type="text" readonly="readonly" id="cardest" name="cardest" value=<%=list.get(i).getDestination() %> /></td> 
   <td colspan="4" ><input type="text" readonly="readonly" id="cartime" name="cartime" value=<%=list.get(i).getDeptTime() %> /></td>
   <td colspan="4" ><input type="text" readonly="readonly" id="carseats" name="carseats" value=<%=list.get(i).getSeatsAvailable() %> /></td>
- <td>  <input  type="submit" value="book">
+ <td>  <input  type="submit" value="book" 
+ >
 </form>
 </tr>
 <%} %>

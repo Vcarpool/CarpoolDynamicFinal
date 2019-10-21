@@ -8,6 +8,7 @@
 Object obj=session.getAttribute("bookCars");
 Car cars=(Car)obj;
 %>
+
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Booking Success</title>
 </head>
@@ -33,7 +34,10 @@ Car cars=(Car)obj;
 	<tr><td>
 	<label>status</label></td><td bgcolor="green" style="color:black">Active</td></tr>
 	</table>
-	<button style="margin-left: 10px;" type="submit" value="go back" onclick="home.html">
+	<form method="get" action="home.jsp">
+    <button type="submit" >GoBack</button>
+   
+</form>
 </body>
 </html>
 

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link href="css/style.css" rel="stylesheet" type="text/css">
+<link href="css/styles.css" rel="stylesheet" type="text/css">
 <script src="js/validate.js, https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/core.js" type="text/javascript"></script>
 <%
 String message="";
@@ -40,7 +40,7 @@ if(obj!=null)
 				<input type="radio" name="type" value="provider" > provider <br> </center>
 				
 				
-				<input type="submit" value="Sign up" class="btn" onclick="return regValidate(password,password1);">
+				<input type="submit" value="Register" class="btn" style="margin-left: 85px" onclick="return regValidate(password,password1);">
 
 </div>
 </form>

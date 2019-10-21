@@ -7,6 +7,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Booking</title>
 <%
@@ -35,7 +36,7 @@ Car cars=(Car)obj;
 	<tr><td>
 	<label>Fare to be paid</label></td><td><input type="text" readonly="readonly"  id="fare" value="40" /></td></tr>
 	<tr align="center"> <td align="center" colspan="2">
-	<input type="submit" value="Confirm" onclick="windows.print()" /></td></tr>
+	<input type="submit" value="Confirm"  /></td></tr>
 	</table>
 	</form>
 </body>

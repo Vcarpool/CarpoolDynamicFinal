@@ -17,8 +17,8 @@ if(obj!=null)
 	message=(String)obj;
 %>
 </head>
-<body class="img">
-<form action="LoginContolServlet" method="post">
+<body class="img" >
+<form action="LoginContolServlet" method="post" autocomplete="off">
 <div class="box">
 <h1>Sign in - VCarPool</h1>
 <h3 style="color:red;"><%=message%></h3>
@@ -28,6 +28,7 @@ if(obj!=null)
 				 class="email" />
 				 <input type="submit" value="Sign in" class="btn" onclick="return regValidate(password,password1);">
 				 <a href="register.jsp"><div id="btn2">Sign Up</div></a> <!-- End Btn2 -->
+				 
 
 </div>
 

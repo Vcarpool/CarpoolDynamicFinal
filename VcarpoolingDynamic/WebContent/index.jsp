@@ -7,7 +7,7 @@
 <title>VCarPooling - welcome</title>
 
 
-<link href="styles.css" rel="stylesheet" type="text/css">
+<link href="css/styles.css" rel="stylesheet" type="text/css">
 <script src="validate.js" type="text/javascript"></script>
 
 </head>
@@ -23,8 +23,7 @@
 				type="text" name="destination" required="required"
 				placeholder="enter your destination" class="email" />
 				<input type="time" name="time" required="required" id="time"  class="email" placeholder="enter departure time"/>
-				 <input type="text" name="seats" required="required" id="seats"
-				placeholder="enter no of seats" class="email" /> 
+				 <input type="number" name="seats" required="required" id="seats" min="1" max="5"	placeholder="enter no of seats" class="email" /> 
 				 
 				 <center><input type="submit" value="Find Cars" class="btn"></center>
 			<!-- End Btn -->

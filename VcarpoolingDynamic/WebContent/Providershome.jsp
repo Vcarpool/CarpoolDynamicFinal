@@ -38,7 +38,7 @@ String testString="";
  
   <div id="myLinks">
     <a href="home.jsp">Home</a>
-    <a href="index.jsp">Book A Car</a>
+    <a href="index.jsp">select a ride </a>
     <a href="logout.jsp">Logout</a>
     
   </div>

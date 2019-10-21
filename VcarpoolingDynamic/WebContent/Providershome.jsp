@@ -31,7 +31,7 @@ String testString="";
 </head>
 
 <body id="img">
- <h1 style="color:silver;">Hello <%=session.getAttribute("userid")   %> welcome To Vcarpool</h1>
+ <h1 style="color:silver;">Hello <%=session.getAttribute("userid")   %> welcome To Vcarpool Provider</h1>
 <div class="topnav">
   <a href="#home" class="active">Logo</a>
   <!-- Navigation links (hidden by default) -->

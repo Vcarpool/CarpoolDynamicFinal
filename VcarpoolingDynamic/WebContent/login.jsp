@@ -27,7 +27,8 @@ if(obj!=null)
 				<input type="password" name="password" id="password" required="required" placeholder="enter your password"
 				 class="email" />
 				 <input type="submit" value="Sign in" class="btn" onclick="return regValidate(password,password1);">
-				 <a href="register.jsp"><div id="btn2">Sign Up</div></a> <!-- End Btn2 -->
+				 <a href="register.jsp"><div id="btn2">Sign Up</div></a> 
+				  <!-- End Btn2 -->
 				 
 
 </div>

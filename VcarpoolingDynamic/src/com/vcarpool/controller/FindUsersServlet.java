@@ -1,12 +1,17 @@
 package com.vcarpool.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import javax.servlet.http.HttpSession;
+import com.vcarpool.model.User;
+import com.vcarpool.services.UserServiceImpl;
 import org.apache.log4j.Logger;
 
 import com.vcarpool.services.UserServiceImpl;
@@ -36,7 +41,15 @@ public class FindUsersServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		UserServiceImpl userserv=new UserServiceImpl();
-		 int userid=Integer.parseInt(request.getParameter("userid"));
+		 int userId=Integer.parseInt(request.getParameter("userid"));
+		 String UserName=request.getParameter("userName");
+		 String Type=request.getParameter("type");
+		 HttpSession session= request.getSession();
+		 session.setAttribute("userid",userId );
+		 session.setAttribute("userName",UserName);
+		 RequestDispatcher dispatcher = null;
+	
+		 
 	
 	}
 

@@ -12,7 +12,9 @@ Car cars=(Car)obj;
 <title>Booking Success</title>
 </head>
 <body>
+
 <table border="1" align="center">
+	<h6 style="color: green;font-family: sans-serif; font-size: large;">Booking successfully Done!</h6>
 	<th colspan="2">Booking Details</th>
 	<tr><td>
 	<label>Car Number</label></td><td><input type="text" readonly="readonly"  name="bCarNo" value=<%=cars.getRegNo() %> /></td></tr>
@@ -31,7 +33,7 @@ Car cars=(Car)obj;
 	<tr><td>
 	<label>status</label></td><td bgcolor="green" style="color:black">Active</td></tr>
 	</table>
-
+	<button style="margin-left: 10px;" type="submit" value="go back" onclick="home.html">
 </body>
 </html>
 

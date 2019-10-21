@@ -42,6 +42,7 @@ public class LoginContolServlet extends HttpServlet {
 	
 	int uName = Integer.parseInt(request.getParameter("userid"));
 	PrintWriter out = response.getWriter();
+	
 	System.out.print(uName);
 	String password = request.getParameter("password");
 	System.out.print(password);

@@ -12,6 +12,7 @@
 <%
 Object obj=session.getAttribute("bookCars");
 Car cars=(Car)obj;
+
 %>
 </head>
 <body>
@@ -20,6 +21,7 @@ Car cars=(Car)obj;
 	<table border="1" align="center">
 	<tr><td>
 	<label>Car Number</label></td><td><input type="text" readonly="readonly"  name="bCarNo" value=<%=cars.getRegNo() %> /></td></tr>
+	
 	<tr><td>
 	<label>Car Name</label></td><td><input type="text" readonly="readonly"  id= "bCarName" value=<%=cars.getCarName() %> /></td></tr>
 	<tr><td>
@@ -33,7 +35,7 @@ Car cars=(Car)obj;
 	<tr><td>
 	<label>Fare to be paid</label></td><td><input type="text" readonly="readonly"  id="fare" value="40" /></td></tr>
 	<tr align="center"> <td align="center" colspan="2">
-	<input type="submit" value="Confirm" onclick="widows.print()" /></td></tr>
+	<input type="submit" value="Confirm" onclick="windows.print()" /></td></tr>
 	</table>
 	</form>
 </body>

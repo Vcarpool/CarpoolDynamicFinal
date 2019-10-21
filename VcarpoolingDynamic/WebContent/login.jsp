@@ -17,7 +17,7 @@ if(obj!=null)
 	message=(String)obj;
 %>
 </head>
-<body>
+<body class="img">
 <form action="LoginContolServlet" method="post">
 <div class="box">
 <h1>Sign in - VCarPool</h1>

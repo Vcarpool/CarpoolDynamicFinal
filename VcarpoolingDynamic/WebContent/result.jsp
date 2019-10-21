@@ -33,8 +33,7 @@ ArrayList<Car> list = (ArrayList<Car>) obj;
   <td colspan="4" ><input type="text" readonly="readonly" id="cardest" name="cardest" value=<%=list.get(i).getDestination() %> /></td> 
   <td colspan="4" ><input type="text" readonly="readonly" id="cartime" name="cartime" value=<%=list.get(i).getDeptTime() %> /></td>
   <td colspan="4" ><input type="text" readonly="readonly" id="carseats" name="carseats" value=<%=list.get(i).getSeatsAvailable() %> /></td>
- <td>  <input  type="submit" value="book" 
- >
+ <td>  <input  type="submit" value="book" >
 </form>
 </tr>
 <%} %>

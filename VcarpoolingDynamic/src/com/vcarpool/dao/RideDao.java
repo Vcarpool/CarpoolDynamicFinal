@@ -25,36 +25,36 @@ public class RideDao implements RideService {
 	}
 
 	@Override
-	public int insert(Ride ride) throws VCarpoolException {
+	public int insert(Ride r) throws VCarpoolException {
 
 		Connection con = ConnectionUtil.getConnection();
-		PreparedStatement preparedStatement = null;
-		ResultSet resultSet = null;
+		PreparedStatement pst = null;
+		ResultSet rs = null;
 		int key = 0;
 		String query = "insert into Ride(rideId, rideStatus, riderId, providerId) values(?,?,?,?)";
 		try {
-			preparedStatement = con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
-			preparedStatement.setInt(1, ride.getRideId());
-			preparedStatement.setString(2, ride.getStatus());
-			preparedStatement.setInt(3, ride.getRider().getUserId());
-			preparedStatement.setInt(4, ride.getProvider().getUserId());
-			preparedStatement.executeUpdate();
-			resultSet = preparedStatement.getGeneratedKeys();
-			if (resultSet.next())
-				key = resultSet.getInt(1);
+			pst = con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+			pst.setInt(1, r.getRideId());
+			pst.setString(2, r.getStatus());
+			pst.setInt(3, r.getRider().getUserId());
+			pst.setInt(4, r.getProvider().getUserId());
+			pst.executeUpdate();
+			rs = pst.getGeneratedKeys();
+			if (rs.next())
+				key = rs.getInt(1);
 		} catch (SQLException e) {
 			log.error("error-dao", e);
 			throw new VCarpoolException("exception-dao");
 		} finally {
-			if (resultSet != null)
+			if (rs != null)
 				try {
-					resultSet.close();
+					rs.close();
 				} catch (SQLException e) {
 					throw new VCarpoolException();
 				}
-			if (preparedStatement != null)
+			if (pst != null)
 				try {
-					preparedStatement.close();
+					pst.close();
 				} catch (SQLException e) {
 					throw new VCarpoolException();
 				}
@@ -68,36 +68,37 @@ public class RideDao implements RideService {
 
 		return key;
 
+
 	}
 
 	@Override
-	public int update(Ride ride, String feild, String value) throws VCarpoolException {
+	public int update(Ride r, String feild, String value) throws VCarpoolException {
 		Connection con = ConnectionUtil.getConnection();
-		PreparedStatement preparedStatement = null;
-		ResultSet resultSet = null;
+		PreparedStatement pst = null;
+		ResultSet rs = null;
 		int key = 0;
 		String query = "update ride set " + feild + "=? where rideId= ?";
 
 		System.out.println(query);
 		try {
-			preparedStatement = con.prepareStatement(query);
+			pst = con.prepareStatement(query);
 
-			preparedStatement.setString(1, value);
-			preparedStatement.setInt(2, ride.getRideId());
-			key = preparedStatement.executeUpdate();
+			pst.setString(1, value);
+			pst.setInt(2, r.getRideId());
+			key = pst.executeUpdate();
 		} catch (SQLException e) {
 			log.error("update error- dao", e);
 			throw new VCarpoolException("error-dao-update");
 		} finally {
-			if (resultSet != null)
+			if (rs != null)
 				try {
-					resultSet.close();
+					rs.close();
 				} catch (SQLException e) {
 					throw new VCarpoolException();
 				}
-			if (preparedStatement != null)
+			if (pst != null)
 				try {
-					preparedStatement.close();
+					pst.close();
 				} catch (SQLException e) {
 					throw new VCarpoolException();
 				}
@@ -114,18 +115,18 @@ public class RideDao implements RideService {
 	}
 
 	@Override
-	public Ride delet(Ride ride) throws VCarpoolException {
+	public Ride delet(Ride r) throws VCarpoolException {
 
-		Ride temp = ride;
+		Ride temp = r;
 
 		Connection con = ConnectionUtil.getConnection();
-		PreparedStatement preparedStatement = null;
+		PreparedStatement pst = null;
 		int key = 0;
 		String query = "delete from ride where rideId=?";
 		try {
-			preparedStatement = con.prepareStatement(query);
-			preparedStatement.setInt(1, ride.getRideId());
-			key = preparedStatement.executeUpdate();
+			pst = con.prepareStatement(query);
+			pst.setInt(1, r.getRideId());
+			key = pst.executeUpdate();
 			if (key > 0)
 				return temp;
 			else
@@ -135,9 +136,9 @@ public class RideDao implements RideService {
 			throw new VCarpoolException("error in deleting data");
 		} finally {
 
-			if (preparedStatement != null)
+			if (pst != null)
 				try {
-					preparedStatement.close();
+					pst.close();
 				} catch (SQLException e) {
 					throw new VCarpoolException();
 				}
@@ -155,25 +156,25 @@ public class RideDao implements RideService {
 	public List<Ride> showRides() throws VCarpoolException {
 		UserServiceImpl ser = new UserServiceImpl();
 		ArrayList<Ride> arr = new ArrayList<Ride>();
-		ResultSet resultSet = null;
+		ResultSet rs = null;
 		Connection con = ConnectionUtil.getConnection();
-		Statement statement = null;
+		Statement st = null;
 		String query = "select * from ride";
 		try {
-			statement = con.createStatement();
-			resultSet = statement.executeQuery(query);
-			if (resultSet == null)
+			st = con.createStatement();
+			rs = st.executeQuery(query);
+			if (rs == null)
 				return null;
 			else {
 				Ride user = null;
-				while (resultSet.next()) {
+				while (rs.next()) {
 					user = new Ride();
-					user.setRideId(resultSet.getInt("rideId"));
-					user.setStatus(resultSet.getString("rideStatus"));
+					user.setRideId(rs.getInt("rideId"));
+					user.setStatus(rs.getString("rideStatus"));
 
-					User rider = ser.getUser(resultSet.getInt("riderId"));
+					User rider = ser.getUser(rs.getInt("riderId"));
 					user.setRider(rider);
-					User provider = ser.getUser(resultSet.getInt("providerId"));
+					User provider = ser.getUser(rs.getInt("providerId"));
 					user.setProvider(provider);
 
 					arr.add(user);
@@ -186,6 +187,7 @@ public class RideDao implements RideService {
 		}
 
 		return arr;
+
 
 		
 	}

@@ -50,7 +50,7 @@ public class ConfirmControlServlet extends HttpServlet {
 		try {
 			boolean status=carserv.bookCar(regNo, seats);
 			if(status) {
-				dispatcher=request.getRequestDispatcher("bookingsuccess.jsp");
+				dispatcher=request.getRequestDispatcher("bookingSuccess.jsp");
 				
 				dispatcher.forward(request, response);
 				

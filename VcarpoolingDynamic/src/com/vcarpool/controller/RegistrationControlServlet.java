@@ -39,7 +39,6 @@ public class RegistrationControlServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		
 		User user=new User();
 		user.setUserName(request.getParameter("username"));
 		user.setPassword(request.getParameter("password"));
@@ -74,7 +73,7 @@ public class RegistrationControlServlet extends HttpServlet {
 				else {
 					HttpSession Session=request.getSession();
 					Session.setAttribute("userid", userid);
-					dispatcher=request.getRequestDispatcher("registersuccess.jsp");
+					dispatcher=request.getRequestDispatcher("registerSuccess.jsp");
 					
 				}
 			}
@@ -86,5 +85,6 @@ public class RegistrationControlServlet extends HttpServlet {
 		}
 		dispatcher.forward(request, response);
 	}
+
 
 }

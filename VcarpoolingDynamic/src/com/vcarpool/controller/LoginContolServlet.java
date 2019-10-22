@@ -59,11 +59,11 @@ public class LoginContolServlet extends HttpServlet {
 			out.print(user.getUserName() + user.getEmail() + user.getType());
 			if (session.getAttribute("source") == null) {
 				if (user.getType().equals("provider")) {
-				dispatcher = request.getRequestDispatcher("Providershome.jsp");
+				dispatcher = request.getRequestDispatcher("home.jsp");
 				dispatcher.forward(request, response);
 				}
 				else {
-					dispatcher = request.getRequestDispatcher("ridershome.jsp");
+					dispatcher = request.getRequestDispatcher("home.jsp");
 					dispatcher.forward(request, response);
 					
 				}
